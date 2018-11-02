@@ -4,7 +4,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
-
+use app\index\model\Gifts;
 class Show extends Controller
 {
     /**
@@ -14,7 +14,11 @@ class Show extends Controller
      */
     public function index()
     {
-        //
+        
+        $gift = new Gifts();
+        $data = $gift->list();
+        var_dump($data);
+        //return $this->fetch('index');
     }
 
     /**
