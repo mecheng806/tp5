@@ -28,7 +28,7 @@ class Show extends Controller
      */
     public function create()
     {
-        //
+        echo 'I am the test of git1';
     }
 
     /**
