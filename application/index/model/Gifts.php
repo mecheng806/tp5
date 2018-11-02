@@ -11,7 +11,7 @@ class Gifts extends Model
 	//}
     public function list(){
     	$gift = new Gifts;
-    	$list = $gift->where('id','>',250)->order('totals','desc')->limit(1)->select();
+    	$list = $gift->where('id','>',250)->order('totals','desc')->limit(2)->select();
     	return $list;
     }
 }

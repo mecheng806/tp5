@@ -16,9 +16,9 @@ class Show extends Controller
     {
         
         $gift = new Gifts();
-        $data = $gift->list();
-        var_dump($data);
-        //return $this->fetch('index');
+        $list = $gift->list();
+        $this->assign('list',$list);
+        return $this->fetch('index');
     }
 
     /**
@@ -28,9 +28,6 @@ class Show extends Controller
      */
     public function create()
     {
-
-
-        echo 'I am the test of git1';
 
     }
 
