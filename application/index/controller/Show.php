@@ -59,9 +59,15 @@ class Show extends Controller
      * @param  int  $id
      * @return \think\Response
      */
-    public function edit($id)
+    public function edit($gift_id)
     {
-        //
+        $gift = new Gifts();
+        $upd = $gift->edit($gift_id);
+        if($upd>0){
+            return ['status'=>1,'msg'=>'update is ok'];
+        }else{
+            return ['status'=>0,'msg'=>'update is fail'];
+        }
     }
 
     /**
