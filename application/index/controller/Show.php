@@ -6,6 +6,7 @@ use think\Controller;
 use think\Request;
 use app\index\model\Gifts;
 use think\cache\driver\Redis;
+use libs\RedisPage;
 class Show extends Controller
 {
     /**
@@ -41,7 +42,7 @@ class Show extends Controller
      */
     public function save(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -50,9 +51,12 @@ class Show extends Controller
      * @param  int  $id
      * @return \think\Response
      */
-    public function read($id)
-    {
-        //
+    public function read($page)
+    {   
+        $limit = 10;
+        $list = new RedisPage($page,$limit);
+        echo $list->page;
+        //return 1111;
     }
 
     /**
