@@ -13,23 +13,31 @@
 </body>
 <script type="text/javascript" src="https://h5.qiangwan.com/static/js/mobile/users/jquery.min.js"></script>
 <script>
+    var flag = true;
 	$('button').on('click',function(){
-		var $this = $(this);
-		var gift_id = parseInt($this.attr('gift_id'));
-		var remain = parseInt($this.attr('remain'));
-		if(remain == 0){
-			alert('礼包已经领完了');
-			return false;
-		}else{
-			$.get("{:url('show/edit')}",{'gift_id':gift_id,'remain':remain},function(data){
-				if(data.status == 1){
-					console.log('this====>'+$this.attr('remain',remain));
-					remain = remain -1
-					$this.prve().text('数量为：'+remain);
-					$this.attr('remain',remain);
+			var put = $(this);
+		    var gift_id = parseInt(put.attr('gift_id'));
+			var remain = parseInt(put.attr('remain'));
+			if(remain == 0){
+				alert('礼包已领完了');
+				return false;
+			}else{
+				if(flag){
+					flag = false;
+					$.get("{:url('show/edit')}",{'gift_id':gift_id},function(data){
+						if(data.status == 1){
+							console.log('this====>'+put.attr('remain',remain));
+							remain = remain -1
+							put.prev().text('数量为：'+remain);
+							put.attr('remain',remain);
+							flag = true;
+						}
+				
+					})
 				}
-			})
-		}
+				
+			}
+
 
 	})
 </script>

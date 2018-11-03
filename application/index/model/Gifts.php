@@ -18,6 +18,7 @@ class Gifts extends Model
     public function edit($id){
     	$upd = Db::table('gifts')
     		 ->where('id',$id)
+    		 ->where('remain','>',0)
     		 ->update([
     			'remain'=>Db::raw('remain-1')
     		 ]);
