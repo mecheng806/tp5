@@ -5,6 +5,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Request;
 use app\index\model\Gifts;
+use think\cache\driver\Redis;
 class Show extends Controller
 {
     /**
@@ -28,7 +29,8 @@ class Show extends Controller
      */
     public function create()
     {
-
+        $redis = new Redis();
+        $redis->set('tp5_test_key1','tp5');
     }
 
     /**
