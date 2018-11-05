@@ -85,7 +85,9 @@ class Show extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // update the data
+        echo '<pre>';
+        var_dump($request->server);
     }
 
     /**
@@ -96,6 +98,6 @@ class Show extends Controller
      */
     public function delete($id)
     {
-        //
+        
     }
 }
